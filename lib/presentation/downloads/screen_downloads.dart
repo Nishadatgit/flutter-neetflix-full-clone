@@ -6,6 +6,8 @@ import 'package:project_netflix/application/downloads/downloads_bloc.dart';
 import 'package:project_netflix/core/colors/colors.dart';
 import 'package:project_netflix/core/constants.dart';
 import 'package:project_netflix/core/strings.dart';
+import 'package:project_netflix/presentation/downloads/widgets/downloads_image_widget.dart';
+import 'package:project_netflix/presentation/downloads/widgets/loading_widget.dart';
 import 'package:project_netflix/presentation/widgets/appbar_widget.dart';
 
 class ScreenDownloads extends StatelessWidget {
@@ -41,8 +43,10 @@ class Section2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<DownloadsBloc>(context)
-        .add(const DownloadsEvent.getDownloadsImage());
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      BlocProvider.of<DownloadsBloc>(context)
+          .add(const DownloadsEvent.getDownloadsImage());
+    });
     final size = MediaQuery.of(context).size;
     return Column(
       children: [
@@ -61,7 +65,7 @@ class Section2 extends StatelessWidget {
         kHeight,
         BlocBuilder<DownloadsBloc, DownloadsState>(builder: (context, state) {
           return state.downloads.isEmpty
-              ? const CircularProgressIndicator()
+              ? const LoadingWidget()
               : SizedBox(
                   height: size.width - 80,
                   width: size.width,
@@ -163,40 +167,6 @@ class _SmartDownloads extends StatelessWidget {
         SizedBox(width: 10),
         Text('Smart Downloads')
       ],
-    );
-  }
-}
-
-class DownloadsImageWidget extends StatelessWidget {
-  const DownloadsImageWidget({
-    Key? key,
-    required this.imageUrls,
-    this.angle = 0,
-    this.isMiddle = false,
-    required this.margin,
-  }) : super(key: key);
-
-  final String imageUrls;
-  final double angle;
-  final EdgeInsets margin;
-  final bool isMiddle;
-
-  @override
-  Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return Padding(
-      padding: margin,
-      child: Transform.rotate(
-        angle: angle * pi / 180,
-        child: Container(
-          width: isMiddle ? size.width * .43 : size.width * .3,
-          height: isMiddle ? size.width * .56 : size.width * .5,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              image: DecorationImage(
-                  image: NetworkImage(imageUrls), fit: BoxFit.cover)),
-        ),
-      ),
     );
   }
 }
