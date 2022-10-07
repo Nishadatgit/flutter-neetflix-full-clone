@@ -10,3 +10,4 @@ final kRadius10 = BorderRadius.circular(10);
 //Image
 const kNewAndHotImage =
     "https://images.indianexpress.com/2022/06/nayanthara.jpg";
+
