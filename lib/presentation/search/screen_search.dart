@@ -43,7 +43,7 @@ class ScreenSearch extends StatelessWidget {
             kHeight,
             Expanded(child: BlocBuilder<SearchBloc, SearchState>(
               builder: (context, state) {
-                if (state.searchResults.isEmpty) {
+                if (state.isSearching == false) {
                   return const SearchIdleWidget();
                 } else {
                   return const SearchResultWidget();

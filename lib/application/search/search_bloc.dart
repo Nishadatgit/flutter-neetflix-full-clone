@@ -21,6 +21,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       if (state.idleList.isNotEmpty) {
         emit(SearchState(
           searchResults: [],
+          isSearching: false,
           idleList: state.idleList,
           isLoading: false,
           isError: false,
@@ -30,6 +31,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       emit(const SearchState(
         searchResults: [],
         idleList: [],
+        isSearching: false,
         isLoading: true,
         isError: false,
       ));
@@ -37,6 +39,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       list.fold((MainFailures f) {
         emit(const SearchState(
           searchResults: [],
+          isSearching: false,
           idleList: [],
           isLoading: false,
           isError: true,
@@ -44,6 +47,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       }, (List<Downloads> d) {
         emit(SearchState(
           searchResults: [],
+          isSearching: false,
           idleList: d,
           isLoading: false,
           isError: false,
@@ -55,6 +59,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
        
         emit(const SearchState(
           searchResults: [],
+          isSearching: true,
           idleList: [],
           isLoading: true,
           isError: false,
@@ -68,6 +73,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
             return const SearchState(
               searchResults: [],
               idleList: [],
+              isSearching: false,
               isLoading: false,
               isError: true,
             );
@@ -76,6 +82,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
             return SearchState(
               searchResults: r.results,
               idleList: [],
+              isSearching: true,
               isLoading: false,
               isError: false,
             );

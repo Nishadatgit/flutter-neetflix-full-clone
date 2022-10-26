@@ -32,7 +32,7 @@ class SearchResultWidget extends StatelessWidget {
                         List.generate(state.searchResults.length, (index) {
                       return MainCard(
                         image: state.searchResults[index].posterPath == null
-                            ? "https://t4.ftcdn.net/jpg/04/00/24/31/360_F_400243185_BOxON3h9avMUX10RsDkt3pJ8iQx72kS3.jpg"
+                            ? "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png"
                             : "$imgBaseUrl${state.searchResults[index].posterPath}",
                       );
                     }),
@@ -41,7 +41,8 @@ class SearchResultWidget extends StatelessWidget {
                   return const Center(child: CircularProgressIndicator());
                 } else if (state.isError == true) {
                   return const Center(child: Text("Error occured"));
-                } else if (state.searchResults.isEmpty) {
+                } else if (state.searchResults.isEmpty &&
+                    state.isSearching == true) {
                   return const Center(child: Text("No results found"));
                 } else {
                   return const Center(child: CircularProgressIndicator());
