@@ -28,12 +28,14 @@ class SearchResultWidget extends StatelessWidget {
                     mainAxisSpacing: 8,
                     crossAxisSpacing: 8,
                     childAspectRatio: 1 / 1.4,
-                    children: List.generate(
-                        state.searchResults.length,
-                        (index) => MainCard(
-                              image:
-                                  "$imgBaseUrl${state.searchResults[index].posterPath}",
-                            )),
+                    children:
+                        List.generate(state.searchResults.length, (index) {
+                      return MainCard(
+                        image: state.searchResults[index].posterPath == null
+                            ? "https://t4.ftcdn.net/jpg/04/00/24/31/360_F_400243185_BOxON3h9avMUX10RsDkt3pJ8iQx72kS3.jpg"
+                            : "$imgBaseUrl${state.searchResults[index].posterPath}",
+                      );
+                    }),
                   );
                 } else if (state.isLoading == true) {
                   return const Center(child: CircularProgressIndicator());
