@@ -18,6 +18,15 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   SearchBloc(this.iDownloadsRepo, this.iSearchRepo)
       : super(SearchState.initial()) {
     on<Initialize>((event, emit) async {
+      if (state.idleList.isNotEmpty) {
+        emit(SearchState(
+          searchResults: [],
+          idleList: state.idleList,
+          isLoading: false,
+          isError: false,
+        ));
+        return;
+      }
       emit(const SearchState(
         searchResults: [],
         idleList: [],
@@ -41,8 +50,39 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         ));
       });
     });
-    on<SearchMovie>((event, emit) {
-      iSearchRepo.searchMovies(movieQuery: event.movieName);
-    });
+    on<SearchMovie>(
+      (event, emit) async {
+       
+        emit(const SearchState(
+          searchResults: [],
+          idleList: [],
+          isLoading: true,
+          isError: false,
+        ));
+
+        final result =
+            await iSearchRepo.searchMovies(movieQuery: event.movieName);
+
+        final _state = result.fold(
+          (l) {
+            return const SearchState(
+              searchResults: [],
+              idleList: [],
+              isLoading: false,
+              isError: true,
+            );
+          },
+          (r) {
+            return SearchState(
+              searchResults: r.results,
+              idleList: [],
+              isLoading: false,
+              isError: false,
+            );
+          },
+        );
+        emit(_state);
+      },
+    );
   }
 }

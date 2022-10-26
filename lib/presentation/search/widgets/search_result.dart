@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project_netflix/application/search/search_bloc.dart';
 import 'package:project_netflix/core/constants.dart';
+import 'package:project_netflix/core/strings.dart';
 import 'package:project_netflix/presentation/search/widgets/search_title_widget.dart';
-
-const imageUrl =
-    "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/zuNOQVI4rEaqwknrfQUVKtlKE2C.jpg";
 
 class SearchResultWidget extends StatelessWidget {
   const SearchResultWidget({super.key});
@@ -18,14 +18,33 @@ class SearchResultWidget extends StatelessWidget {
         Expanded(
           child: ClipRRect(
             borderRadius: BorderRadius.circular(7),
-            child: GridView.count(
-              // padding: const EdgeInsets.all(10),
-              shrinkWrap: true,
-              crossAxisCount: 3,
-              mainAxisSpacing: 8,
-              crossAxisSpacing: 8,
-              childAspectRatio: 1 / 1.4,
-              children: List.generate(20, (index) => const MainCard()),
+            child: BlocBuilder<SearchBloc, SearchState>(
+              builder: (context, state) {
+                if (state.searchResults.isNotEmpty) {
+                  return GridView.count(
+                    // padding: const EdgeInsets.all(10),
+                    shrinkWrap: true,
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 8,
+                    crossAxisSpacing: 8,
+                    childAspectRatio: 1 / 1.4,
+                    children: List.generate(
+                        state.searchResults.length,
+                        (index) => MainCard(
+                              image:
+                                  "$imgBaseUrl${state.searchResults[index].posterPath}",
+                            )),
+                  );
+                } else if (state.isLoading == true) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (state.isError == true) {
+                  return const Center(child: Text("Error occured"));
+                } else if (state.searchResults.isEmpty) {
+                  return const Center(child: Text("No results found"));
+                } else {
+                  return const Center(child: CircularProgressIndicator());
+                }
+              },
             ),
           ),
         )
@@ -35,15 +54,16 @@ class SearchResultWidget extends StatelessWidget {
 }
 
 class MainCard extends StatelessWidget {
-  const MainCard({super.key});
+  const MainCard({super.key, required this.image});
+  final String image;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(7),
-          image: const DecorationImage(
-              image: NetworkImage(imageUrl), fit: BoxFit.cover)),
+          image:
+              DecorationImage(image: NetworkImage(image), fit: BoxFit.cover)),
     );
   }
 }

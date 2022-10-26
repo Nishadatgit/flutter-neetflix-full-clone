@@ -25,16 +25,14 @@ class SearchIdleWidget extends StatelessWidget {
               final data = state.idleList;
               if (state.isLoading == true) {
                 return const Center(child: CircularProgressIndicator());
-              } else if (state.isError == true) {
+              } else if (state.isError == true && state.idleList.isEmpty) {
                 return const Center(child: Text("Error occured"));
-              } else if (state.idleList.isEmpty) {
-                return const Center(child: CircularProgressIndicator());
               } else {
                 return ListView.separated(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   shrinkWrap: true,
                   itemBuilder: (ctx, index) => TopSearchItemTile(
-                    title: data[index].title ?? 'mothing',
+                    title: data[index].title ?? 'No Title',
                     image: "$imgBaseUrl${data[index].posterPath}",
                   ),
                   separatorBuilder: (ctx, index) => kHeight20,
