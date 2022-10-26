@@ -1,6 +1,16 @@
 part of 'search_bloc.dart';
 
-@immutable
-abstract class SearchState {}
+@freezed
+class SearchState with _$SearchState {
+  const factory SearchState(
+      {required List<SearchResultData> searchResults,
+      required List<Downloads> idleList,
+      required bool isLoading,
+      required bool isError}) = _SearchState;
 
-class SearchInitial extends SearchState {}
+  factory SearchState.initial() =>const SearchState(
+      searchResults: [],
+      idleList: [],
+      isLoading: false,
+      isError: false);
+}

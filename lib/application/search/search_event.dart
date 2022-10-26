@@ -1,4 +1,8 @@
 part of 'search_bloc.dart';
 
-@immutable
-abstract class SearchEvent {}
+@freezed
+class SearchEvent with _$SearchEvent {
+  const factory SearchEvent.initialize() = Initialize;
+  const factory SearchEvent.searchMovie({required String movieName}) = SearchMovie;
+  
+}
