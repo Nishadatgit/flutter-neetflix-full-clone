@@ -11,7 +11,7 @@ class SearchTitleWidget extends StatelessWidget {
   
     return Text(
       text,
-      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),
+      style:const TextStyle(fontWeight: FontWeight.bold, fontSize: 23),
     );
   }
 }

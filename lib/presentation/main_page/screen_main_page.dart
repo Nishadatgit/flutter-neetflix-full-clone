@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project_netflix/core/colors/colors.dart';
 import 'package:project_netflix/presentation/downloads/screen_downloads.dart';
 import 'package:project_netflix/presentation/fast_laugh/screen_fast_laugh.dart';
 import 'package:project_netflix/presentation/home/screen_home.dart';
@@ -10,10 +9,10 @@ import 'package:project_netflix/presentation/search/screen_search.dart';
 class ScreenMainPage extends StatelessWidget {
   ScreenMainPage({super.key});
   final _pages = [
-    ScreenHome(),
-    ScreenNewAndHot(),
-    ScreenFastLaugh(),
-    ScreenSearch(),
+   const ScreenHome(),
+  const  ScreenNewAndHot(),
+  const  ScreenFastLaugh(),
+   const ScreenSearch(),
     ScreenDownloads()
   ];
 
@@ -25,7 +24,7 @@ class ScreenMainPage extends StatelessWidget {
           builder: (context, int newIndex, _) {
             return _pages[newIndex];
           }),
-      bottomNavigationBar: BottomNAvigationWidget(),
+      bottomNavigationBar:const BottomNAvigationWidget(),
     );
   }
 }
