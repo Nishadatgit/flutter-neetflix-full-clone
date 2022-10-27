@@ -1,4 +1,3 @@
-
 // ignore_for_file: invalid_annotation_target, depend_on_referenced_packages
 
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -8,11 +7,9 @@ part 'downloads.g.dart';
 @freezed
 class Downloads with _$Downloads {
   const factory Downloads({
-    @JsonKey(name: "poster_path") 
-    required String? posterPath,
-
-     @JsonKey(name: "title") 
-    required String? title,
+    @JsonKey(name: "poster_path") required String? posterPath,
+    @JsonKey(name: "title") required String? title,
+    @JsonKey(name: "id") required int id,
   }) = _Downloads;
 
   factory Downloads.fromJson(Map<String, dynamic> json) =>

@@ -4,6 +4,7 @@ import 'package:project_netflix/application/search/search_bloc.dart';
 import 'package:project_netflix/core/colors/colors.dart';
 import 'package:project_netflix/core/constants.dart';
 import 'package:project_netflix/core/strings.dart';
+import 'package:project_netflix/domain/downloads/models/downloads.dart';
 
 import 'search_title_widget.dart';
 
@@ -32,8 +33,7 @@ class SearchIdleWidget extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   shrinkWrap: true,
                   itemBuilder: (ctx, index) => TopSearchItemTile(
-                    title: data[index].title ?? 'No Title',
-                    image: "$imgBaseUrl${data[index].posterPath}",
+                    downloadsModel: data[index],
                   ),
                   separatorBuilder: (ctx, index) => kHeight20,
                   itemCount: data.length,
@@ -48,10 +48,9 @@ class SearchIdleWidget extends StatelessWidget {
 }
 
 class TopSearchItemTile extends StatelessWidget {
-  const TopSearchItemTile(
-      {super.key, required this.image, required this.title});
-  final String image;
-  final String title;
+  const TopSearchItemTile({super.key, required this.downloadsModel});
+
+  final Downloads downloadsModel;
 
   @override
   Widget build(BuildContext context) {
@@ -64,26 +63,33 @@ class TopSearchItemTile extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(6)),
               image: DecorationImage(
-                  image: NetworkImage(image), fit: BoxFit.cover)),
+                  image:
+                      NetworkImage("$imgBaseUrl${downloadsModel.posterPath}"),
+                  fit: BoxFit.cover)),
         ),
         kWidth,
         Expanded(
             child: Text(
-          title,
+          downloadsModel.title ?? 'No title',
           style: const TextStyle(
               color: kWhiteColor, fontWeight: FontWeight.bold, fontSize: 16),
         )),
-        const CircleAvatar(
+        CircleAvatar(
           radius: 25,
           backgroundColor: kWhiteColor,
           child: CircleAvatar(
-            backgroundColor: kBlack,
-            radius: 23,
-            child: Icon(
-              Icons.play_arrow,
-              color: kWhiteColor,
-            ),
-          ),
+              backgroundColor: kBlack,
+              radius: 23,
+              child: IconButton(
+                onPressed: () {
+                  print(downloadsModel.id);
+                },
+                padding: EdgeInsets.zero,
+                icon: const Icon(
+                  Icons.play_arrow,
+                  color: kWhiteColor,
+                ),
+              )),
         ),
         kWidth,
       ],
