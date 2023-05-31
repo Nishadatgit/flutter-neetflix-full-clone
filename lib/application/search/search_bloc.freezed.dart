@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'search_bloc.dart';
 
@@ -24,8 +24,8 @@ mixin _$SearchEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
-    TResult Function(String movieName)? searchMovie,
+    TResult? Function()? initialize,
+    TResult? Function(String movieName)? searchMovie,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,8 +43,8 @@ mixin _$SearchEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(SearchMovie value)? searchMovie,
+    TResult? Function(Initialize value)? initialize,
+    TResult? Function(SearchMovie value)? searchMovie,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,16 +60,18 @@ mixin _$SearchEvent {
 abstract class $SearchEventCopyWith<$Res> {
   factory $SearchEventCopyWith(
           SearchEvent value, $Res Function(SearchEvent) then) =
-      _$SearchEventCopyWithImpl<$Res>;
+      _$SearchEventCopyWithImpl<$Res, SearchEvent>;
 }
 
 /// @nodoc
-class _$SearchEventCopyWithImpl<$Res> implements $SearchEventCopyWith<$Res> {
+class _$SearchEventCopyWithImpl<$Res, $Val extends SearchEvent>
+    implements $SearchEventCopyWith<$Res> {
   _$SearchEventCopyWithImpl(this._value, this._then);
 
-  final SearchEvent _value;
   // ignore: unused_field
-  final $Res Function(SearchEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -80,14 +82,12 @@ abstract class _$$InitializeCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$InitializeCopyWithImpl<$Res> extends _$SearchEventCopyWithImpl<$Res>
+class __$$InitializeCopyWithImpl<$Res>
+    extends _$SearchEventCopyWithImpl<$Res, _$Initialize>
     implements _$$InitializeCopyWith<$Res> {
   __$$InitializeCopyWithImpl(
       _$Initialize _value, $Res Function(_$Initialize) _then)
-      : super(_value, (v) => _then(v as _$Initialize));
-
-  @override
-  _$Initialize get _value => super._value as _$Initialize;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -121,8 +121,8 @@ class _$Initialize implements Initialize {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
-    TResult Function(String movieName)? searchMovie,
+    TResult? Function()? initialize,
+    TResult? Function(String movieName)? searchMovie,
   }) {
     return initialize?.call();
   }
@@ -152,8 +152,8 @@ class _$Initialize implements Initialize {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(SearchMovie value)? searchMovie,
+    TResult? Function(Initialize value)? initialize,
+    TResult? Function(SearchMovie value)? searchMovie,
   }) {
     return initialize?.call(this);
   }
@@ -181,25 +181,25 @@ abstract class _$$SearchMovieCopyWith<$Res> {
   factory _$$SearchMovieCopyWith(
           _$SearchMovie value, $Res Function(_$SearchMovie) then) =
       __$$SearchMovieCopyWithImpl<$Res>;
+  @useResult
   $Res call({String movieName});
 }
 
 /// @nodoc
-class __$$SearchMovieCopyWithImpl<$Res> extends _$SearchEventCopyWithImpl<$Res>
+class __$$SearchMovieCopyWithImpl<$Res>
+    extends _$SearchEventCopyWithImpl<$Res, _$SearchMovie>
     implements _$$SearchMovieCopyWith<$Res> {
   __$$SearchMovieCopyWithImpl(
       _$SearchMovie _value, $Res Function(_$SearchMovie) _then)
-      : super(_value, (v) => _then(v as _$SearchMovie));
+      : super(_value, _then);
 
-  @override
-  _$SearchMovie get _value => super._value as _$SearchMovie;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? movieName = freezed,
+    Object? movieName = null,
   }) {
     return _then(_$SearchMovie(
-      movieName: movieName == freezed
+      movieName: null == movieName
           ? _value.movieName
           : movieName // ignore: cast_nullable_to_non_nullable
               as String,
@@ -225,15 +225,16 @@ class _$SearchMovie implements SearchMovie {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SearchMovie &&
-            const DeepCollectionEquality().equals(other.movieName, movieName));
+            (identical(other.movieName, movieName) ||
+                other.movieName == movieName));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(movieName));
+  int get hashCode => Object.hash(runtimeType, movieName);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$SearchMovieCopyWith<_$SearchMovie> get copyWith =>
       __$$SearchMovieCopyWithImpl<_$SearchMovie>(this, _$identity);
 
@@ -249,8 +250,8 @@ class _$SearchMovie implements SearchMovie {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
-    TResult Function(String movieName)? searchMovie,
+    TResult? Function()? initialize,
+    TResult? Function(String movieName)? searchMovie,
   }) {
     return searchMovie?.call(movieName);
   }
@@ -280,8 +281,8 @@ class _$SearchMovie implements SearchMovie {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initialize value)? initialize,
-    TResult Function(SearchMovie value)? searchMovie,
+    TResult? Function(Initialize value)? initialize,
+    TResult? Function(SearchMovie value)? searchMovie,
   }) {
     return searchMovie?.call(this);
   }
@@ -327,7 +328,8 @@ mixin _$SearchState {
 abstract class $SearchStateCopyWith<$Res> {
   factory $SearchStateCopyWith(
           SearchState value, $Res Function(SearchState) then) =
-      _$SearchStateCopyWithImpl<$Res>;
+      _$SearchStateCopyWithImpl<$Res, SearchState>;
+  @useResult
   $Res call(
       {List<SearchResultData> searchResults,
       List<Downloads> idleList,
@@ -337,43 +339,46 @@ abstract class $SearchStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SearchStateCopyWithImpl<$Res> implements $SearchStateCopyWith<$Res> {
+class _$SearchStateCopyWithImpl<$Res, $Val extends SearchState>
+    implements $SearchStateCopyWith<$Res> {
   _$SearchStateCopyWithImpl(this._value, this._then);
 
-  final SearchState _value;
   // ignore: unused_field
-  final $Res Function(SearchState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? searchResults = freezed,
-    Object? idleList = freezed,
-    Object? isLoading = freezed,
-    Object? isError = freezed,
-    Object? isSearching = freezed,
+    Object? searchResults = null,
+    Object? idleList = null,
+    Object? isLoading = null,
+    Object? isError = null,
+    Object? isSearching = null,
   }) {
     return _then(_value.copyWith(
-      searchResults: searchResults == freezed
+      searchResults: null == searchResults
           ? _value.searchResults
           : searchResults // ignore: cast_nullable_to_non_nullable
               as List<SearchResultData>,
-      idleList: idleList == freezed
+      idleList: null == idleList
           ? _value.idleList
           : idleList // ignore: cast_nullable_to_non_nullable
               as List<Downloads>,
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isError: isError == freezed
+      isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSearching: isSearching == freezed
+      isSearching: null == isSearching
           ? _value.isSearching
           : isSearching // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -384,6 +389,7 @@ abstract class _$$_SearchStateCopyWith<$Res>
           _$_SearchState value, $Res Function(_$_SearchState) then) =
       __$$_SearchStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {List<SearchResultData> searchResults,
       List<Downloads> idleList,
@@ -393,41 +399,40 @@ abstract class _$$_SearchStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SearchStateCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
+class __$$_SearchStateCopyWithImpl<$Res>
+    extends _$SearchStateCopyWithImpl<$Res, _$_SearchState>
     implements _$$_SearchStateCopyWith<$Res> {
   __$$_SearchStateCopyWithImpl(
       _$_SearchState _value, $Res Function(_$_SearchState) _then)
-      : super(_value, (v) => _then(v as _$_SearchState));
+      : super(_value, _then);
 
-  @override
-  _$_SearchState get _value => super._value as _$_SearchState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? searchResults = freezed,
-    Object? idleList = freezed,
-    Object? isLoading = freezed,
-    Object? isError = freezed,
-    Object? isSearching = freezed,
+    Object? searchResults = null,
+    Object? idleList = null,
+    Object? isLoading = null,
+    Object? isError = null,
+    Object? isSearching = null,
   }) {
     return _then(_$_SearchState(
-      searchResults: searchResults == freezed
+      searchResults: null == searchResults
           ? _value._searchResults
           : searchResults // ignore: cast_nullable_to_non_nullable
               as List<SearchResultData>,
-      idleList: idleList == freezed
+      idleList: null == idleList
           ? _value._idleList
           : idleList // ignore: cast_nullable_to_non_nullable
               as List<Downloads>,
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isError: isError == freezed
+      isError: null == isError
           ? _value.isError
           : isError // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSearching: isSearching == freezed
+      isSearching: null == isSearching
           ? _value.isSearching
           : isSearching // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -450,6 +455,7 @@ class _$_SearchState implements _SearchState {
   final List<SearchResultData> _searchResults;
   @override
   List<SearchResultData> get searchResults {
+    if (_searchResults is EqualUnmodifiableListView) return _searchResults;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_searchResults);
   }
@@ -457,6 +463,7 @@ class _$_SearchState implements _SearchState {
   final List<Downloads> _idleList;
   @override
   List<Downloads> get idleList {
+    if (_idleList is EqualUnmodifiableListView) return _idleList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_idleList);
   }
@@ -481,10 +488,11 @@ class _$_SearchState implements _SearchState {
             const DeepCollectionEquality()
                 .equals(other._searchResults, _searchResults) &&
             const DeepCollectionEquality().equals(other._idleList, _idleList) &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality().equals(other.isError, isError) &&
-            const DeepCollectionEquality()
-                .equals(other.isSearching, isSearching));
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
+            (identical(other.isError, isError) || other.isError == isError) &&
+            (identical(other.isSearching, isSearching) ||
+                other.isSearching == isSearching));
   }
 
   @override
@@ -492,12 +500,13 @@ class _$_SearchState implements _SearchState {
       runtimeType,
       const DeepCollectionEquality().hash(_searchResults),
       const DeepCollectionEquality().hash(_idleList),
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(isError),
-      const DeepCollectionEquality().hash(isSearching));
+      isLoading,
+      isError,
+      isSearching);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SearchStateCopyWith<_$_SearchState> get copyWith =>
       __$$_SearchStateCopyWithImpl<_$_SearchState>(this, _$identity);
 }

@@ -6,7 +6,10 @@ import '../../core/constants.dart';
 class VideoWidget extends StatelessWidget {
   const VideoWidget({
     Key? key,
+    required this.imagePath,
   }) : super(key: key);
+
+  final String imagePath;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +18,12 @@ class VideoWidget extends StatelessWidget {
         SizedBox(
           height: 200,
           width: MediaQuery.of(context).size.width,
-          child: Image.network(
-            kNewAndHotImage,
-            fit: BoxFit.cover,
+          child: Hero(
+            tag: imagePath,
+            child: Image.network(
+              imagePath,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         Positioned(

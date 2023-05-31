@@ -26,7 +26,7 @@ class SearchIdleWidget extends StatelessWidget {
               final data = state.idleList;
               if (state.isLoading == true) {
                 return const Center(child: CircularProgressIndicator());
-              } else if (state.isError == true && state.idleList.isEmpty) {
+              } else if (state.isError && state.idleList.isEmpty) {
                 return const Center(child: Text("Error occured"));
               } else {
                 return ListView.separated(

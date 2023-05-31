@@ -7,21 +7,27 @@ import '../../widgets/video_widget.dart';
 class EveryonesWatchingWidget extends StatelessWidget {
   const EveryonesWatchingWidget({
     Key? key,
+    required this.description,
+    required this.movieName,
+    required this.posterPath,
   }) : super(key: key);
+  final String description;
+  final String movieName;
+  final String posterPath;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'Friends',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+        Text(
+          movieName,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
         kHeight,
-        const Text(
-          'This hit sitcom follows the merry misadventures of six 20-something pals as they navigate the pitfalls of work, life and lovein 1990s Manhattan',
-          style: TextStyle(
+        Text(
+          description,
+          style: const TextStyle(
             color: Colors.grey,
           ),
           maxLines: 5,
@@ -30,7 +36,9 @@ class EveryonesWatchingWidget extends StatelessWidget {
         kHeight20,
         kHeight20,
         kHeight,
-        const VideoWidget(),
+        VideoWidget(
+          imagePath: posterPath,
+        ),
         kHeight,
         Row(
           mainAxisAlignment: MainAxisAlignment.end,

@@ -7,7 +7,20 @@ import '../../widgets/video_widget.dart';
 class ComingSoonWidget extends StatelessWidget {
   const ComingSoonWidget({
     Key? key,
+    required this.id,
+    required this.month,
+    required this.day,
+    required this.posterpath,
+    required this.movieName,
+    required this.description,
   }) : super(key: key);
+
+  final String id;
+  final String month;
+  final String day;
+  final String posterpath;
+  final String movieName;
+  final String description;
 
   @override
   Widget build(BuildContext context) {
@@ -15,42 +28,46 @@ class ComingSoonWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          height: 420,
           width: 50,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
+            children: [
               Text(
-                'FEB',
-                style: TextStyle(fontSize: 20, color: Colors.grey),
+                month,
+                style: const TextStyle(fontSize: 20, color: Colors.grey),
               ),
               Text(
-                '11',
-                style: TextStyle(
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 5),
+                day,
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
               )
             ],
           ),
         ),
         Expanded(
           child: SizedBox(
-            height: 420,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-               const VideoWidget(),
+                VideoWidget(
+                  imagePath: posterpath,
+                ),
+                kHeight,
                 Row(
                   children: [
-                    const Text(
-                      'Tall Girl 2',
-                      style: TextStyle(
-                          fontSize: 40,
+                    Expanded(
+                      child: Text(
+                        movieName,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontSize: 25,
                           fontWeight: FontWeight.bold,
-                          letterSpacing: -5),
+                        ),
+                      ),
                     ),
-                    const Spacer(),
                     Row(
                       children: const [
                         ActionButton(
@@ -72,16 +89,11 @@ class ComingSoonWidget extends StatelessWidget {
                   ],
                 ),
                 kHeight,
-                const Text('Coming on friday'),
-                kHeight20,
-                const Text(
-                  'Tall Girl 2',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                ),
+                Text('Coming on $day $month'),
                 kHeight,
-                const Text(
-                  'Landing the lead in the school musical is a dream come truefor Jodi, until the pressure sends her confidence-and her relationship-into a tailspin',
-                  style: TextStyle(
+                Text(
+                  description,
+                  style: const TextStyle(
                     color: Colors.grey,
                   ),
                   maxLines: 4,
@@ -96,4 +108,3 @@ class ComingSoonWidget extends StatelessWidget {
     );
   }
 }
-

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'downloads_bloc.dart';
 
@@ -23,7 +23,7 @@ mixin _$DownloadsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getDownloadsImage,
+    TResult? Function()? getDownloadsImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,7 +39,7 @@ mixin _$DownloadsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetDownloadsImage value)? getDownloadsImage,
+    TResult? Function(_GetDownloadsImage value)? getDownloadsImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,17 +54,18 @@ mixin _$DownloadsEvent {
 abstract class $DownloadsEventCopyWith<$Res> {
   factory $DownloadsEventCopyWith(
           DownloadsEvent value, $Res Function(DownloadsEvent) then) =
-      _$DownloadsEventCopyWithImpl<$Res>;
+      _$DownloadsEventCopyWithImpl<$Res, DownloadsEvent>;
 }
 
 /// @nodoc
-class _$DownloadsEventCopyWithImpl<$Res>
+class _$DownloadsEventCopyWithImpl<$Res, $Val extends DownloadsEvent>
     implements $DownloadsEventCopyWith<$Res> {
   _$DownloadsEventCopyWithImpl(this._value, this._then);
 
-  final DownloadsEvent _value;
   // ignore: unused_field
-  final $Res Function(DownloadsEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -76,14 +77,11 @@ abstract class _$$_GetDownloadsImageCopyWith<$Res> {
 
 /// @nodoc
 class __$$_GetDownloadsImageCopyWithImpl<$Res>
-    extends _$DownloadsEventCopyWithImpl<$Res>
+    extends _$DownloadsEventCopyWithImpl<$Res, _$_GetDownloadsImage>
     implements _$$_GetDownloadsImageCopyWith<$Res> {
   __$$_GetDownloadsImageCopyWithImpl(
       _$_GetDownloadsImage _value, $Res Function(_$_GetDownloadsImage) _then)
-      : super(_value, (v) => _then(v as _$_GetDownloadsImage));
-
-  @override
-  _$_GetDownloadsImage get _value => super._value as _$_GetDownloadsImage;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -116,7 +114,7 @@ class _$_GetDownloadsImage implements _GetDownloadsImage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getDownloadsImage,
+    TResult? Function()? getDownloadsImage,
   }) {
     return getDownloadsImage?.call();
   }
@@ -144,7 +142,7 @@ class _$_GetDownloadsImage implements _GetDownloadsImage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetDownloadsImage value)? getDownloadsImage,
+    TResult? Function(_GetDownloadsImage value)? getDownloadsImage,
   }) {
     return getDownloadsImage?.call(this);
   }
@@ -182,7 +180,8 @@ mixin _$DownloadsState {
 abstract class $DownloadsStateCopyWith<$Res> {
   factory $DownloadsStateCopyWith(
           DownloadsState value, $Res Function(DownloadsState) then) =
-      _$DownloadsStateCopyWithImpl<$Res>;
+      _$DownloadsStateCopyWithImpl<$Res, DownloadsState>;
+  @useResult
   $Res call(
       {bool isLoading,
       List<Downloads> downloads,
@@ -190,34 +189,36 @@ abstract class $DownloadsStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DownloadsStateCopyWithImpl<$Res>
+class _$DownloadsStateCopyWithImpl<$Res, $Val extends DownloadsState>
     implements $DownloadsStateCopyWith<$Res> {
   _$DownloadsStateCopyWithImpl(this._value, this._then);
 
-  final DownloadsState _value;
   // ignore: unused_field
-  final $Res Function(DownloadsState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
-    Object? downloads = freezed,
-    Object? downloadsFailureOrSuccess = freezed,
+    Object? isLoading = null,
+    Object? downloads = null,
+    Object? downloadsFailureOrSuccess = null,
   }) {
     return _then(_value.copyWith(
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      downloads: downloads == freezed
+      downloads: null == downloads
           ? _value.downloads
           : downloads // ignore: cast_nullable_to_non_nullable
               as List<Downloads>,
-      downloadsFailureOrSuccess: downloadsFailureOrSuccess == freezed
+      downloadsFailureOrSuccess: null == downloadsFailureOrSuccess
           ? _value.downloadsFailureOrSuccess
           : downloadsFailureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Option<Either<MainFailures, List<Downloads>>>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -228,6 +229,7 @@ abstract class _$$_DownloadsStateCopyWith<$Res>
           _$_DownloadsState value, $Res Function(_$_DownloadsState) then) =
       __$$_DownloadsStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool isLoading,
       List<Downloads> downloads,
@@ -236,31 +238,29 @@ abstract class _$$_DownloadsStateCopyWith<$Res>
 
 /// @nodoc
 class __$$_DownloadsStateCopyWithImpl<$Res>
-    extends _$DownloadsStateCopyWithImpl<$Res>
+    extends _$DownloadsStateCopyWithImpl<$Res, _$_DownloadsState>
     implements _$$_DownloadsStateCopyWith<$Res> {
   __$$_DownloadsStateCopyWithImpl(
       _$_DownloadsState _value, $Res Function(_$_DownloadsState) _then)
-      : super(_value, (v) => _then(v as _$_DownloadsState));
+      : super(_value, _then);
 
-  @override
-  _$_DownloadsState get _value => super._value as _$_DownloadsState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoading = freezed,
-    Object? downloads = freezed,
-    Object? downloadsFailureOrSuccess = freezed,
+    Object? isLoading = null,
+    Object? downloads = null,
+    Object? downloadsFailureOrSuccess = null,
   }) {
     return _then(_$_DownloadsState(
-      isLoading: isLoading == freezed
+      isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      downloads: downloads == freezed
+      downloads: null == downloads
           ? _value._downloads
           : downloads // ignore: cast_nullable_to_non_nullable
               as List<Downloads>,
-      downloadsFailureOrSuccess: downloadsFailureOrSuccess == freezed
+      downloadsFailureOrSuccess: null == downloadsFailureOrSuccess
           ? _value.downloadsFailureOrSuccess
           : downloadsFailureOrSuccess // ignore: cast_nullable_to_non_nullable
               as Option<Either<MainFailures, List<Downloads>>>,
@@ -282,6 +282,7 @@ class _$_DownloadsState implements _DownloadsState {
   final List<Downloads> _downloads;
   @override
   List<Downloads> get downloads {
+    if (_downloads is EqualUnmodifiableListView) return _downloads;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_downloads);
   }
@@ -299,22 +300,25 @@ class _$_DownloadsState implements _DownloadsState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DownloadsState &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
             const DeepCollectionEquality()
                 .equals(other._downloads, _downloads) &&
-            const DeepCollectionEquality().equals(
-                other.downloadsFailureOrSuccess, downloadsFailureOrSuccess));
+            (identical(other.downloadsFailureOrSuccess,
+                    downloadsFailureOrSuccess) ||
+                other.downloadsFailureOrSuccess == downloadsFailureOrSuccess));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(isLoading),
+      isLoading,
       const DeepCollectionEquality().hash(_downloads),
-      const DeepCollectionEquality().hash(downloadsFailureOrSuccess));
+      downloadsFailureOrSuccess);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DownloadsStateCopyWith<_$_DownloadsState> get copyWith =>
       __$$_DownloadsStateCopyWithImpl<_$_DownloadsState>(this, _$identity);
 }

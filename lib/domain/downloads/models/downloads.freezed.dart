@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'downloads.dart';
 
@@ -36,7 +36,8 @@ mixin _$Downloads {
 /// @nodoc
 abstract class $DownloadsCopyWith<$Res> {
   factory $DownloadsCopyWith(Downloads value, $Res Function(Downloads) then) =
-      _$DownloadsCopyWithImpl<$Res>;
+      _$DownloadsCopyWithImpl<$Res, Downloads>;
+  @useResult
   $Res call(
       {@JsonKey(name: "poster_path") String? posterPath,
       @JsonKey(name: "title") String? title,
@@ -44,33 +45,36 @@ abstract class $DownloadsCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DownloadsCopyWithImpl<$Res> implements $DownloadsCopyWith<$Res> {
+class _$DownloadsCopyWithImpl<$Res, $Val extends Downloads>
+    implements $DownloadsCopyWith<$Res> {
   _$DownloadsCopyWithImpl(this._value, this._then);
 
-  final Downloads _value;
   // ignore: unused_field
-  final $Res Function(Downloads) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? posterPath = freezed,
     Object? title = freezed,
-    Object? id = freezed,
+    Object? id = null,
   }) {
     return _then(_value.copyWith(
-      posterPath: posterPath == freezed
+      posterPath: freezed == posterPath
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: title == freezed
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
@@ -80,6 +84,7 @@ abstract class _$$_DownloadsCopyWith<$Res> implements $DownloadsCopyWith<$Res> {
           _$_Downloads value, $Res Function(_$_Downloads) then) =
       __$$_DownloadsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(name: "poster_path") String? posterPath,
       @JsonKey(name: "title") String? title,
@@ -87,31 +92,30 @@ abstract class _$$_DownloadsCopyWith<$Res> implements $DownloadsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DownloadsCopyWithImpl<$Res> extends _$DownloadsCopyWithImpl<$Res>
+class __$$_DownloadsCopyWithImpl<$Res>
+    extends _$DownloadsCopyWithImpl<$Res, _$_Downloads>
     implements _$$_DownloadsCopyWith<$Res> {
   __$$_DownloadsCopyWithImpl(
       _$_Downloads _value, $Res Function(_$_Downloads) _then)
-      : super(_value, (v) => _then(v as _$_Downloads));
+      : super(_value, _then);
 
-  @override
-  _$_Downloads get _value => super._value as _$_Downloads;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? posterPath = freezed,
     Object? title = freezed,
-    Object? id = freezed,
+    Object? id = null,
   }) {
     return _then(_$_Downloads(
-      posterPath: posterPath == freezed
+      posterPath: freezed == posterPath
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
-      title: title == freezed
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
@@ -150,22 +154,19 @@ class _$_Downloads implements _Downloads {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Downloads &&
-            const DeepCollectionEquality()
-                .equals(other.posterPath, posterPath) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.id, id));
+            (identical(other.posterPath, posterPath) ||
+                other.posterPath == posterPath) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(posterPath),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(id));
+  int get hashCode => Object.hash(runtimeType, posterPath, title, id);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DownloadsCopyWith<_$_Downloads> get copyWith =>
       __$$_DownloadsCopyWithImpl<_$_Downloads>(this, _$identity);
 

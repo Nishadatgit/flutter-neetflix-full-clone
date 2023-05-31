@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'main_failures.dart';
 
@@ -24,8 +24,8 @@ mixin _$MainFailures {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
+    TResult? Function()? clientFailure,
+    TResult? Function()? serverFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,8 +43,8 @@ mixin _$MainFailures {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ClientFailure value)? clientFailure,
-    TResult Function(_serverFailure value)? serverFailure,
+    TResult? Function(_ClientFailure value)? clientFailure,
+    TResult? Function(_serverFailure value)? serverFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,16 +60,18 @@ mixin _$MainFailures {
 abstract class $MainFailuresCopyWith<$Res> {
   factory $MainFailuresCopyWith(
           MainFailures value, $Res Function(MainFailures) then) =
-      _$MainFailuresCopyWithImpl<$Res>;
+      _$MainFailuresCopyWithImpl<$Res, MainFailures>;
 }
 
 /// @nodoc
-class _$MainFailuresCopyWithImpl<$Res> implements $MainFailuresCopyWith<$Res> {
+class _$MainFailuresCopyWithImpl<$Res, $Val extends MainFailures>
+    implements $MainFailuresCopyWith<$Res> {
   _$MainFailuresCopyWithImpl(this._value, this._then);
 
-  final MainFailures _value;
   // ignore: unused_field
-  final $Res Function(MainFailures) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -81,14 +83,11 @@ abstract class _$$_ClientFailureCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ClientFailureCopyWithImpl<$Res>
-    extends _$MainFailuresCopyWithImpl<$Res>
+    extends _$MainFailuresCopyWithImpl<$Res, _$_ClientFailure>
     implements _$$_ClientFailureCopyWith<$Res> {
   __$$_ClientFailureCopyWithImpl(
       _$_ClientFailure _value, $Res Function(_$_ClientFailure) _then)
-      : super(_value, (v) => _then(v as _$_ClientFailure));
-
-  @override
-  _$_ClientFailure get _value => super._value as _$_ClientFailure;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -122,8 +121,8 @@ class _$_ClientFailure implements _ClientFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
+    TResult? Function()? clientFailure,
+    TResult? Function()? serverFailure,
   }) {
     return clientFailure?.call();
   }
@@ -153,8 +152,8 @@ class _$_ClientFailure implements _ClientFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ClientFailure value)? clientFailure,
-    TResult Function(_serverFailure value)? serverFailure,
+    TResult? Function(_ClientFailure value)? clientFailure,
+    TResult? Function(_serverFailure value)? serverFailure,
   }) {
     return clientFailure?.call(this);
   }
@@ -186,14 +185,11 @@ abstract class _$$_serverFailureCopyWith<$Res> {
 
 /// @nodoc
 class __$$_serverFailureCopyWithImpl<$Res>
-    extends _$MainFailuresCopyWithImpl<$Res>
+    extends _$MainFailuresCopyWithImpl<$Res, _$_serverFailure>
     implements _$$_serverFailureCopyWith<$Res> {
   __$$_serverFailureCopyWithImpl(
       _$_serverFailure _value, $Res Function(_$_serverFailure) _then)
-      : super(_value, (v) => _then(v as _$_serverFailure));
-
-  @override
-  _$_serverFailure get _value => super._value as _$_serverFailure;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -227,8 +223,8 @@ class _$_serverFailure implements _serverFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? clientFailure,
-    TResult Function()? serverFailure,
+    TResult? Function()? clientFailure,
+    TResult? Function()? serverFailure,
   }) {
     return serverFailure?.call();
   }
@@ -258,8 +254,8 @@ class _$_serverFailure implements _serverFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ClientFailure value)? clientFailure,
-    TResult Function(_serverFailure value)? serverFailure,
+    TResult? Function(_ClientFailure value)? clientFailure,
+    TResult? Function(_serverFailure value)? serverFailure,
   }) {
     return serverFailure?.call(this);
   }
